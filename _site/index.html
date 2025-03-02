@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching | This is a demo page.</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a demo page." />
+<meta property="og:description" content="This is a demo page." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"This is a demo page.","headline":"One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching","name":"One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">One-Shot Singing Voice Conversion with Dual Attention Mechanism and Flow Matching</h1>
+      <!-- <h2 class="project-tagline">This is a demo page.</h2> -->
+      <h2 class="project-tagline"> Anonymous </h2>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="abstract">Abstract</h2>
+
+<p>Singing Voice Conversion (SVC) transfers a source singer’s timbre to a target while keeping melody and lyrics. The key challenge in any-to-any SVC is adapting unseen speaker timbres to source audio without quality degradation. Existing methods either face timbre leakage or fail to achieve satisfactory timbre similarity and quality in the generated audio. To address these challenges, we propose DAFMSVC, where the self-supervised learning (SSL) features from the source audio are replaced with the most similar SSL features from the target audio to prevent timbre leakage. It also incorporates a dual-cross-attention mechanism for the adaptive fusion of speaker embeddings, melody, and linguistic content. Additionally, we introduce a flow matching module for high-quality audio generation from the fused features. Experimental results show that DAFMSVC significantly enhances timbre similarity and naturalness, outperforming state-of-the-art methods in both subjective and objective evaluations.
+<br />
+<br /></p>
+
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <figure style="text-align: center;">
+        <img src="all.png" alt="Image 1" style="max-width: 110% " />
+		<figcaption style="text-align: center;">
+            <strong>DAFMSVC framework.</strong><br />
+            <small>Snowflake represents the parameter that remains unchanged when training the framework.</small>
+        </figcaption>
+    </figure>
+    <figure style="text-align: center;">
+        <img src="attention.png" alt="Image 2" style="max-width: 98%" />
+        <figcaption style="text-align: center;"><strong>Melody extractor.</strong></figcaption>
+    </figure>
+</div>
+
+<h2 id="conversion-tasks">Conversion Tasks</h2>
+
+<p>Our goal is to transfer the timbre of a source song to an unseen target singer while preserving the original content and melody.
+We will generate waveforms with high timbre similarity, naturalness and quality.
+Note that the reference audio in the SVC demo is approximately 30 seconds long. In the demo web, we have only included about 10 seconds of the target person’s audio to demonstrate their voice characteristics.</p>
+
+<ul>
+  <li><strong>Proposed</strong> - the DAFMSVC method.</li>
+  <li><strong>NeuCoSVC</strong> - This method is a novel neural concatenation-based approach for one-shot SVC, which adopts the FastSVC architecture to generate synthesized audio.</li>
+  <li><strong>So-VITS-SVC</strong> - This method is a popular open-source voice conversion tool based on VITS~\cite{kim2021conditional}, which uses a Conditional Variational Autoencoder combined with adversarial learning.</li>
+  <li><strong>DDSP-SVC</strong> - This method is an end-to-end singing voice conversion system based on Differentiable Digital Signal Processing (DDSP) that uses a cascade diffusion model to reconstruct high-quality audio.</li>
+</ul>
+
+<h2 id="demos">Demos</h2>
+
+<div class="table-wrapper">
+
+<table>
+<thead>
+<tr class="header">
+<th>NO</th>
+<th>Source</th>
+<th>Reference</th>
+<th>Proposed</th>
+<th>NeuCoSVC</th>
+<th>So-VITS-SVC</th>
+<th>DDSP-SVC</th>
+
+
+
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><audio controls="">
+				<source src="audios\example\gt\ManRaw_1_达尔文_11.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td rowspan="2"><audio controls="">
+				<source src="audios\example\ref\M26_ref.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\ManRaw_1_达尔文_11_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\ManRaw_1_达尔文_11_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\ManRaw_1_达尔文_11_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\ManRaw_1_达尔文_11_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>2</td>
+<td><audio controls="">
+				<source src="audios\example\gt\WomanRaw_37_需要人陪_15.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\WomanRaw_37_需要人陪_15_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\WomanRaw_37_需要人陪_15_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\WomanRaw_37_需要人陪_15_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\WomanRaw_37_需要人陪_15_to_M_26_26.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>3</td>
+<td><audio controls="">
+				<source src="audios\example\gt\ManRaw_17_方圆几里_29.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ref\M27_ref.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\ManRaw_17_方圆几里_29_to_M_27_27.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\ManRaw_17_方圆几里_29_to_M_27_27.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\ManRaw_17_方圆几里_29_to_M_27_27.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\ManRaw_17_方圆几里_29_to_M_27_27.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>4</td>
+<td><audio controls="">
+				<source src="audios\example\gt\WomanRaw_6_爱笑的眼睛_40.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td rowspan="2"><audio controls="">
+				<source src="audios\example\ref\W46_ref.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\WomanRaw_6_爱笑的眼睛_40_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\WomanRaw_6_爱笑的眼睛_40_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\WomanRaw_6_爱笑的眼睛_40_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\WomanRaw_6_爱笑的眼睛_40_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>5</td>
+<td><audio controls="">
+				<source src="audios\example\gt\WomanRaw_16_光_9.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\WomanRaw_16_光_9_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\WomanRaw_16_光_9_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\WomanRaw_16_光_9_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\WomanRaw_16_光_9_to_W_46_46.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>6</td>
+<td><audio controls="">
+				<source src="audios\example\gt\WomanRaw_25_易燃易爆炸_25.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td rowspan="2"><audio controls="">
+				<source src="audios\example\ref\W47_ref.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\WomanRaw_25_易燃易爆炸_25_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\WomanRaw_25_易燃易爆炸_25_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\WomanRaw_25_易燃易爆炸_25_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\WomanRaw_25_易燃易爆炸_25_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+<tr class="odd">
+<td>7</td>
+<td><audio controls="">
+				<source src="audios\example\gt\WomanRaw_1_大鱼_9.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\pro_infer\WomanRaw_1_大鱼_9_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\neuco_infer\WomanRaw_1_大鱼_9_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\sovits_infer\WomanRaw_1_大鱼_9_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+<td><audio controls="">
+				<source src="audios\example\ddsp_infer\WomanRaw_1_大鱼_9_to_W_47_47.wav" type="audio/mpeg" />
+				Your browser does not support this audio format.
+			</audio></td>
+</tr>
+
+
+</tbody>
+</table>
+
+  
+
+  
+  <br />
+  <br />
+</div>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
