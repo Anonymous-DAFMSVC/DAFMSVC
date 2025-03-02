@@ -34,7 +34,7 @@ Note that the reference audio in the SVC demo is approximately 30 seconds long. 
 
 - **Proposed** - the DAFMSVC method.
 - **NeuCoSVC** - This method is a novel neural concatenation-based approach for one-shot SVC, which adopts the FastSVC architecture to generate synthesized audio.
-- **So-VITS-SVC** - This method is a popular open-source voice conversion tool based on VITS~\cite{kim2021conditional}, which uses a Conditional Variational Autoencoder combined with adversarial learning.
+- **So-VITS-SVC** - This method is a popular open-source voice conversion tool based on VITS, which uses a Conditional Variational Autoencoder combined with adversarial learning.
 - **DDSP-SVC** - This method is an end-to-end singing voice conversion system based on Differentiable Digital Signal Processing (DDSP) that uses a cascade diffusion model to reconstruct high-quality audio.
 
 
